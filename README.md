@@ -188,7 +188,7 @@ The items to recognize are simple prefabs of a Wall and a Ball which is the targ
 
 During the training some challenges occured. At some points my GPUless slow laptop just started lagging alot, making the training sub optimal. I made my ray lengths very long because my Agent had to detect what was coming from a far. Making it start its jumping cycle very early. Sometimes resulting in crashing ontop of the wall, even though it's intentions were to dodge it.
 
-![Ray length](https://ibb.co/ftdtchP)
+![Ray length](https://i.imgur.com/dvJ7EHf.png)
 I sadly couldn't shorten my ray lengths because when the training was going on for quite a while my laptop would start to slow down, not giving the game engine enough time to decide whether to jump over the wall or not. So I had to keep my ray lenghts long so the agent always knew what was coming towards it.
 
 Here you can see what kind of effects your laptop slowing down has on your training:
