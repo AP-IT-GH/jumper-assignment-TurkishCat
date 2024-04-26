@@ -9,15 +9,49 @@ In the end the cube was able to decide whether to jump or not based on the gener
 
 The most important components for the exercise were:
 
- 1. Ray Perception Sensor 3D
+ 1. Ray Perception Sensor 3D & Behaviour Parameters
  2. Script having logic for observations and actions etc..
  3. Items to recognize
 
 
-## Ray Perception Sensor 3D
+## Ray Perception Sensor 3D & Behaviour Parameters
 
 This component of the ML Agent Cube has the purpose of detecting objects in iets view(the rays). I configured it so that it could detect items with the tags Wall and Target. 
 The wall being the wall the Agent had to dodge in the assignment.
+
+![Sensor Config](https://i.imgur.com/fq1yC4u.png)
+
+The behaviour parameters can be seen in the image. Below the image you can see the yaml file config used during the training.
+
+![Behaviour Parameters](https://i.imgur.com/n3c4iL8.png)
+
+     behaviors:
+     CubeAgentRays:
+     trainer_type: ppo
+     hyperparameters:
+      batch_size: 10
+      buffer_size: 100
+      learning_rate: 3.0e-4
+      beta: 5.0e-4
+      epsilon: 0.2
+      lambd: 0.99
+      num_epoch: 3
+      learning_rate_schedule: linear
+      beta_schedule: constant
+      epsilon_schedule: linear
+     network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+     reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+     max_steps: 125000
+     time_horizon: 64
+     summary_freq: 2000
+
+   
 ## Script for ML Agent
 
     using System.Collections.Generic;
@@ -180,6 +214,7 @@ The wall being the wall the Agent had to dodge in the assignment.
         }
     }
 
+![Script items attached from Hierarchy](https://i.imgur.com/wIZvenp.png)
 ## Items to recognize
 The items to recognize are simple prefabs of a Wall and a Ball which is the target. You can see in the script of the ML Agent we need to assign the prefabs to this script via the UI so it knows the prefab to spawn of a spawner on the map.
 
@@ -188,14 +223,14 @@ The items to recognize are simple prefabs of a Wall and a Ball which is the targ
 
 During the training some challenges occured. At some points my GPUless slow laptop just started lagging alot, making the training sub optimal. I made my ray lengths very long because my Agent had to detect what was coming from a far. Making it start its jumping cycle very early. Sometimes resulting in crashing ontop of the wall, even though it's intentions were to dodge it.
 
-![Ray length](https://ibb.co/ftdtchP)
+![Ray length](https://i.imgur.com/dvJ7EHf.png)
 I sadly couldn't shorten my ray lengths because when the training was going on for quite a while my laptop would start to slow down, not giving the game engine enough time to decide whether to jump over the wall or not. So I had to keep my ray lenghts long so the agent always knew what was coming towards it.
 
 Here you can see what kind of effects your laptop slowing down has on your training:
-![Big crash due to laptop slowing down](https://ibb.co/PDd7t5P)
+![Big crash due to laptop slowing down](https://i.imgur.com/kmcmULU.png)
 You can clearly see the big crash after having trained succesfully for quite a while.
 Below another example of having big crashes when laptop was slowing down:
-![Another training scenario](https://ibb.co/XJknkBN)
+![Another training scenario](https://i.imgur.com/D06HFls.png)
 
 As you can see in both training scenario's the negative effects start to occur after 100 000 steps.
 
