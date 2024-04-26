@@ -214,6 +214,7 @@ The behaviour parameters can be seen in the image. Below the image you can see t
         }
     }
 
+![Script items attached from Hierarchy](https://i.imgur.com/wIZvenp.png)
 ## Items to recognize
 The items to recognize are simple prefabs of a Wall and a Ball which is the target. You can see in the script of the ML Agent we need to assign the prefabs to this script via the UI so it knows the prefab to spawn of a spawner on the map.
 
