@@ -239,6 +239,8 @@ As you can see in both training scenario's the negative effects start to occur a
 [Video of training the agent](https://ap.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4ca9b8e7-47f3-44f4-a777-b15e016be1e8)
 
 In the provided video you can clearly see as the training goes, the agent progessively decides better whether or not to jump when seeing a target that results in positive or negative reward points. 
+Colliding with the ball/target is positive reward points. Colliding with the wall is negative reward points.
+Jumping over the ball/target is negative reward points. Jumping over the wall is positive reward points.
 
 In the video you can also visually see what I explained under 
 
