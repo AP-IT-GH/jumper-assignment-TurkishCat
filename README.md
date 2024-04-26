@@ -9,15 +9,44 @@ In the end the cube was able to decide whether to jump or not based on the gener
 
 The most important components for the exercise were:
 
- 1. Ray Perception Sensor 3D
+ 1. Ray Perception Sensor 3D & Behaviour Parameters
  2. Script having logic for observations and actions etc..
  3. Items to recognize
 
 
-## Ray Perception Sensor 3D
+## Ray Perception Sensor 3D & Behaviour Parameters
 
 This component of the ML Agent Cube has the purpose of detecting objects in iets view(the rays). I configured it so that it could detect items with the tags Wall and Target. 
 The wall being the wall the Agent had to dodge in the assignment.
+![Sensor Config](https://i.imgur.com/fq1yC4u.png)
+
+The behaviour parameters can be seen in the image. Below the image you can see the yaml file config used during the training.
+![Behaviour Parameters](https://i.imgur.com/n3c4iL8.png)
+    behaviors:
+     CubeAgentRays:
+     trainer_type: ppo
+     hyperparameters:
+      batch_size: 10
+      buffer_size: 100
+      learning_rate: 3.0e-4
+      beta: 5.0e-4
+      epsilon: 0.2
+      lambd: 0.99
+      num_epoch: 3
+      learning_rate_schedule: linear
+      beta_schedule: constant
+      epsilon_schedule: linear
+     network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+     reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+     max_steps: 125000
+     time_horizon: 64
+     summary_freq: 2000
 ## Script for ML Agent
 
     using System.Collections.Generic;
