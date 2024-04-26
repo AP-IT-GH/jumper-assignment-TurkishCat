@@ -18,11 +18,14 @@ The most important components for the exercise were:
 
 This component of the ML Agent Cube has the purpose of detecting objects in iets view(the rays). I configured it so that it could detect items with the tags Wall and Target. 
 The wall being the wall the Agent had to dodge in the assignment.
+
 ![Sensor Config](https://i.imgur.com/fq1yC4u.png)
 
 The behaviour parameters can be seen in the image. Below the image you can see the yaml file config used during the training.
+
 ![Behaviour Parameters](https://i.imgur.com/n3c4iL8.png)
-    behaviors:
+
+     behaviors:
      CubeAgentRays:
      trainer_type: ppo
      hyperparameters:
@@ -47,6 +50,8 @@ The behaviour parameters can be seen in the image. Below the image you can see t
      max_steps: 125000
      time_horizon: 64
      summary_freq: 2000
+
+   
 ## Script for ML Agent
 
     using System.Collections.Generic;
