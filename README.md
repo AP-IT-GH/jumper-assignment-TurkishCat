@@ -192,10 +192,10 @@ During the training some challenges occured. At some points my GPUless slow lapt
 I sadly couldn't shorten my ray lengths because when the training was going on for quite a while my laptop would start to slow down, not giving the game engine enough time to decide whether to jump over the wall or not. So I had to keep my ray lenghts long so the agent always knew what was coming towards it.
 
 Here you can see what kind of effects your laptop slowing down has on your training:
-![Big crash due to laptop slowing down](https://ibb.co/PDd7t5P)
+![Big crash due to laptop slowing down](https://i.imgur.com/kmcmULU.png)
 You can clearly see the big crash after having trained succesfully for quite a while.
 Below another example of having big crashes when laptop was slowing down:
-![Another training scenario](https://ibb.co/XJknkBN)
+![Another training scenario](https://i.imgur.com/D06HFls.png)
 
 As you can see in both training scenario's the negative effects start to occur after 100 000 steps.
 
